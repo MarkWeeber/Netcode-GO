@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 7478947878185201732}
   - component: {fileID: 8771162738320778447}
   - component: {fileID: 3587412614738417140}
-  - component: {fileID: 8559453761583375800}
-  - component: {fileID: 840062366405673606}
   - component: {fileID: -3015904479617807465}
   - component: {fileID: 4179240671160538311}
+  - component: {fileID: -3158579941319659832}
   m_Layer: 6
   m_Name: ProjectileBase
   m_TagString: Untagged
@@ -74,34 +73,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8559453761583375800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8488592479840454623}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 586f7c127c102f54e9365cd44631d230, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 2147483647
---- !u!114 &840062366405673606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8488592479840454623}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df4eccfe397d3654f943504886f65b5e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifeTime: 30
 --- !u!114 &-3015904479617807465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,3 +115,23 @@ MonoBehaviour:
   ScaleThreshold: 0.01
   InLocalSpace: 0
   Interpolate: 0
+--- !u!114 &-3158579941319659832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8488592479840454623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ae4c8f66b57aa14c82b4f2bd38d2a5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 1
+  lifeTime: 10
+  Rigidbody2D: {fileID: 0}
+  OnProjectileDestroy:
+    m_PersistentCalls:
+      m_Calls: []
