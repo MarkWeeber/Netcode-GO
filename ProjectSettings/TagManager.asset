@@ -47,6 +47,9 @@ TagManager:
   - name: Collectible
     uniqueID: 901888257
     locked: 0
+  - name: Terrain
+    uniqueID: 3255987777
+    locked: 0
   - name: Player
     uniqueID: 3565680637
     locked: 0

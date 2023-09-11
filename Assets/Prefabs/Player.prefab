@@ -650,6 +650,7 @@ GameObject:
   - component: {fileID: 340778464751952558}
   - component: {fileID: 5561616334756328444}
   - component: {fileID: 8124189670096342937}
+  - component: {fileID: 6358801570315669580}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -828,3 +829,16 @@ MonoBehaviour:
     m_Bits: 128
   TotalCoins:
     m_InternalValue: 0
+--- !u!114 &6358801570315669580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7115734730714109209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67d859d5d1ac7a04d9f29983eb9ae6ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cameraFollowerGameObjectName: CameraFollower

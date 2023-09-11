@@ -32,7 +32,6 @@ public class ProjectileFire : NetworkBehaviour
     {
         if (!IsOwner) { return; }
         inputReader.PrimaryFireEvent.AddListener(HandleFilre);
-        Debug.Log("1");
         if (IsServer)
         {
             serverProjectileFire = this;
@@ -99,7 +98,6 @@ public class ProjectileFire : NetworkBehaviour
     [ServerRpc]
     private void FireProjectileServerRpc(Vector3 position, Vector3 direction, ServerRpcParams serverRpc = default)
     {
-        Debug.Log($"Sender Id: {serverRpc.Receive.SenderClientId}");
         spawnedPrefab = Instantiate(serverProjectilePrefab, position, Quaternion.identity);
         spawnedPrefab.transform.up = direction;
         Physics2D.IgnoreCollision(playerCollider, spawnedPrefab.GetComponent<Collider2D>());
@@ -137,7 +135,6 @@ public class ProjectileFire : NetworkBehaviour
     {
         foreach (Projectile item in serverProjectileFire.activeProjectiles)
         {
-            Debug.Log("3");
             SpawnMissingProjectileClientRpc(serverRpc.Receive.SenderClientId, item.transform.position, item.transform.rotation, item.Rigidbody2D.velocity, item.LifeTimer);
         }
     }
@@ -145,10 +142,8 @@ public class ProjectileFire : NetworkBehaviour
     [ClientRpc]
     private void SpawnMissingProjectileClientRpc(ulong ownerClientId, Vector3 position, Quaternion rotation, Vector3 velocity, float lifeTimer)
     {
-        Debug.Log("4");
         if (ownerClientId == OwnerClientId)
         {
-            Debug.Log($"Client with id: {OwnerClientId} has been called");
             spawnedPrefab = Instantiate(clientProjectilePrefab, position, Quaternion.identity);
             spawnedPrefab.transform.rotation = rotation;
             if (spawnedPrefab.TryGetComponent<Rigidbody2D>(out Rigidbody2D rb))

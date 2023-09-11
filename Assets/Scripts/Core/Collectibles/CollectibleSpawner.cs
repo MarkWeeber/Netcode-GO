@@ -16,6 +16,7 @@ public class CollectibleSpawner : NetworkBehaviour
     private Collider2D[] collisions = new Collider2D[1];
     private float coinRadius;
     private int collisionsOnSpawnPoint;
+    private int maxTries = 30;
 
     public override void OnNetworkSpawn()
     {
@@ -55,7 +56,8 @@ public class CollectibleSpawner : NetworkBehaviour
         float x = 0f;
         float y = 0f;
         Vector2 spawnPoint = Vector2.zero;
-        while (true)
+        int tries = maxTries;
+        while (tries > 0)
         {
             x = Random.Range(xSpawnRange.x, xSpawnRange.y);
             y = Random.Range(ySpawnRange.x, ySpawnRange.y);
@@ -65,7 +67,9 @@ public class CollectibleSpawner : NetworkBehaviour
             {
                 return spawnPoint;
             }
+            tries--;
         }
+        return spawnPoint;
     }
 }
 
