@@ -3,25 +3,43 @@ using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerCameraRerouter : NetworkBehaviour
+public class PlayerCameraRerouter : MonoBehaviour
 {
-    [SerializeField] private string cameraFollowerGameObjectName = "";
-    private GameObject cameraFollowerObject;
-    public override void OnNetworkSpawn()
+    private NetworkObject networkObject;
+    private PlayerMovement playerMovement;
+    public void Start()
     {
-        if (IsOwner)
+        BindCamera();
+    }
+
+    private void OnDestroy()
+    {
+        if (playerMovement != null)
         {
-            cameraFollowerObject = GameObject.Find(cameraFollowerGameObjectName);
-            cameraFollowerObject.transform.position = transform.position;
-            cameraFollowerObject.transform.parent = transform;
+            playerMovement.OnDespawn.RemoveListener(UnBindCamera);
         }
     }
 
-    public override void OnNetworkDespawn()
+    private void BindCamera()
     {
-        if (IsOwner)
+        var playerObjects = FindObjectsOfType<PlayerMovement>();
+        foreach (var item in playerObjects)
         {
-            cameraFollowerObject.transform.parent = null;
+            if (item.TryGetComponent<NetworkObject>(out networkObject))
+            {
+                if (networkObject.IsOwner)
+                {
+                    transform.position = item.transform.position;
+                    transform.parent = item.transform;
+                    playerMovement = item;
+                    item.OnDespawn.AddListener(UnBindCamera);
+                }
+            }
         }
+    }
+
+    private void UnBindCamera()
+    {
+        transform.parent = null;
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerMovement : NetworkBehaviour
 {
@@ -12,6 +13,8 @@ public class PlayerMovement : NetworkBehaviour
     [Header("Settings")]
     [SerializeField] private float movementSpeed = 4f;
     [SerializeField] private float turnRate = 30f;
+
+    public UnityEvent OnDespawn = new UnityEvent();
 
     private Vector2 previousMovementInput;
     private float zRotation;
@@ -38,6 +41,7 @@ public class PlayerMovement : NetworkBehaviour
         {
             inputReader.MovementEvent.RemoveListener(HandleMovement);
         }
+        OnDespawn?.Invoke();
     }
 
     private void Update()
