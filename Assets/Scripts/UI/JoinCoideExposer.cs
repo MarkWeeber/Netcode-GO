@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class TestCall : MonoBehaviour
+public class JoinCoideExposer : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI text;
-    private void Start()
+    
+    private void Awake()
     {
         if (HostSingleton.Instance != null)
         {

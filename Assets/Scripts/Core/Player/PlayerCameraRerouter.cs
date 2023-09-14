@@ -33,6 +33,7 @@ public class PlayerCameraRerouter : MonoBehaviour
                     transform.parent = item.transform;
                     playerMovement = item;
                     item.OnDespawn.AddListener(UnBindCamera);
+                    return;
                 }
             }
         }
