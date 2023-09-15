@@ -654,8 +654,8 @@ GameObject:
   - component: {fileID: 2999866027235279164}
   - component: {fileID: 3014583481137664109}
   - component: {fileID: 5561616334756328444}
+  - component: {fileID: 3482811991018819485}
   - component: {fileID: 3436369655008784923}
-  - component: {fileID: 8718586203506850134}
   - component: {fileID: 1479699223505193363}
   - component: {fileID: 340778464751952558}
   - component: {fileID: 8124189670096342937}
@@ -747,6 +747,23 @@ MonoBehaviour:
   OnHealthChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3482811991018819485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7115734730714109209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acb8ff70bf5e18d48ab13e9df0a69268, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputReader: {fileID: 11400000, guid: d0588f146d30a044b92b1f5ebb06d5f9, type: 2}
+  bodyTransform: {fileID: 1842394269742402292}
+  rigidBody: {fileID: 2999866027235279164}
+  movementSpeed: 270
+  turnRate: 180
 --- !u!114 &3436369655008784923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -777,26 +794,6 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
---- !u!114 &8718586203506850134
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7115734730714109209}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b92d32cf27932d499705ba1c8ad246e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputReader: {fileID: 11400000, guid: d0588f146d30a044b92b1f5ebb06d5f9, type: 2}
-  bodyTransform: {fileID: 1842394269742402292}
-  rigidBody: {fileID: 2999866027235279164}
-  movementSpeed: 300
-  turnRate: 180
-  OnDespawn:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &1479699223505193363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -862,6 +859,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   userOverheadName: {fileID: 4959078802148457589}
+  Health: {fileID: 5561616334756328444}
   PlayerName:
     m_InternalValue:
       utf8LengthInBytes: 0

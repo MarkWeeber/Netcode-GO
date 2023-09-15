@@ -14,8 +14,6 @@ public class PlayerMovement : NetworkBehaviour
     [SerializeField] private float movementSpeed = 4f;
     [SerializeField] private float turnRate = 30f;
 
-    public UnityEvent OnDespawn = new UnityEvent();
-
     private Vector2 previousMovementInput;
     private float zRotation;
 
@@ -41,7 +39,6 @@ public class PlayerMovement : NetworkBehaviour
         {
             inputReader.MovementEvent.RemoveListener(HandleMovement);
         }
-        OnDespawn?.Invoke();
     }
 
     private void Update()
