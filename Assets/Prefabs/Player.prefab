@@ -859,7 +859,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   userOverheadName: {fileID: 4959078802148457589}
-  Health: {fileID: 5561616334756328444}
+  <Health>k__BackingField: {fileID: 5561616334756328444}
+  <Inventory>k__BackingField: {fileID: 8124189670096342937}
   PlayerName:
     m_InternalValue:
       utf8LengthInBytes: 0
