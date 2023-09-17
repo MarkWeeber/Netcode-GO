@@ -826,7 +826,7 @@ MonoBehaviour:
   clientProjectilePrefab: {fileID: 6141609485209587925, guid: cefc03a52e0f85140b5059cf11d870a2, type: 3}
   muzzleFlashGameObject: {fileID: 5814508329872879587}
   playerCollider: {fileID: 1137531232794319333}
-  projectileSpeed: 1
+  projectileSpeed: 5
   fireRateInSeconds: 0.45
   muzzleFlashDuration: 0.12
 --- !u!114 &8124189670096342937
