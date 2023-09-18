@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8257188096947747463}
   - component: {fileID: 1627114857100796960}
   - component: {fileID: 7301266784571532584}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: TopHeadCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 8522236992792580117}
   - component: {fileID: 8396199361070326486}
   - component: {fileID: 2694721569528805052}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -574,7 +574,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 9
   m_Sprite: {fileID: 21300000, guid: 1a838243856331f4681c559527ad5846, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -844,6 +844,15 @@ MonoBehaviour:
   targetMask:
     serializedVersion: 2
     m_Bits: 128
+  bountyCoinPrefab: {fileID: 3824333535946758564, guid: fe6d59841cf726e45b4037f30011a600, type: 3}
+  health: {fileID: 5561616334756328444}
+  bountyCoinsCount: 10
+  minBountyCoinValue: 5
+  bountyCoinSpread: 3
+  bountyPercentage: 50
+  layerMaskForBountyCoins:
+    serializedVersion: 2
+    m_Bits: 1
   TotalCoins:
     m_InternalValue: 0
 --- !u!114 &9003610902132104323
@@ -907,7 +916,7 @@ GameObject:
   - component: {fileID: 6448263379403868306}
   - component: {fileID: 7644411648525609534}
   - component: {fileID: 4959078802148457589}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PlayerNameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
