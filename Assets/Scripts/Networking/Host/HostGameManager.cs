@@ -18,6 +18,7 @@ public class HostGameManager : IDisposable
 {
     private const int MaxConnections = 20;
     public const string GameSceneName = "Game";
+    public const string MainMenuSceneName = "MainMenu";
     private Allocation allocation;
     private string joinCode;
     private UnityTransport unityTransport;
@@ -111,10 +112,10 @@ public class HostGameManager : IDisposable
 
     public void Dispose()
     {
-        ShutDown();
+        ShutDown(false);
     }
 
-    public async void ShutDown()
+    public async void ShutDown(bool goToMainMenu = true)
     {
         HostSingleton.Instance.StopCoroutine(nameof(HeartBeatLobby));
         if (!string.IsNullOrEmpty(lobbyId))
@@ -129,8 +130,15 @@ public class HostGameManager : IDisposable
             }
             lobbyId = string.Empty;
         }
-        NetworkServer.OnClientLeft -= HandleClientLeft;
-        NetworkServer?.Dispose();
+        if (NetworkServer != null)
+        {
+            if (goToMainMenu)
+            {
+                NetworkManager.Singleton.SceneManager.LoadScene(MainMenuSceneName, UnityEngine.SceneManagement.LoadSceneMode.Single);
+            }            
+            NetworkServer.OnClientLeft -= HandleClientLeft;
+            NetworkServer?.Dispose();
+        }
     }
 
     private async void HandleClientLeft(string authId)

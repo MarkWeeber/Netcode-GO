@@ -91,7 +91,7 @@ public class LeaderBoard : NetworkBehaviour
             {
                 Debug.Log($"List ID: {x.ClientId}, List Name: {x.PlayerName}");
             }
-            leaderBoardEntityStates.Remove(item);
+            leaderBoardEntityStates?.Remove(item);
             break;
         }
         player.Inventory.TotalCoins.OnValueChanged -= (oldCoins, newCoins) => HandleCoinsChange(player.OwnerClientId, newCoins);
