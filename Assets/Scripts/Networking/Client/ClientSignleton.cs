@@ -17,7 +17,7 @@ public class ClientSignleton : MonoBehaviour
             else
             {
                 instance = FindObjectOfType<ClientSignleton>();
-                if (instance == null )
+                if (instance == null)
                 {
                     Debug.LogError("No ClientSignleton found!");
                     return null;

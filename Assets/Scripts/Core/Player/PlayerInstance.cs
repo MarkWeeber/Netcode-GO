@@ -9,9 +9,11 @@ using UnityEngine.Events;
 
 public class PlayerInstance : NetworkBehaviour
 {
+    [SerializeField] private SpriteRenderer minimapSprite;
+    [SerializeField] private Color ownColor;
     [SerializeField] private TMP_Text userOverheadName;
     [field: SerializeField] public Health Health { get; private set; }
-    [field: SerializeField] public Inventory Inventory { get; private set;}
+    [field: SerializeField] public Inventory Inventory { get; private set; }
     public static UnityEvent<PlayerInstance> OnPlayerSpawned = new UnityEvent<PlayerInstance>();
     public static UnityEvent<PlayerInstance> OnPlayerDespawned = new UnityEvent<PlayerInstance>();
     public NetworkVariable<FixedString32Bytes> PlayerName = new NetworkVariable<FixedString32Bytes>();
@@ -34,6 +36,7 @@ public class PlayerInstance : NetworkBehaviour
             {
                 PlayerCameraRerouter.Instance.BindCamera(this);
             }
+            minimapSprite.color = ownColor;
         }
     }
     public override void OnNetworkDespawn()

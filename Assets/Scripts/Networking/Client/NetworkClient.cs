@@ -24,6 +24,11 @@ public class NetworkClient : IDisposable
         {
             return;
         }
+        Disconnect();
+    }
+
+    public void Disconnect()
+    {
         if (SceneManager.GetActiveScene().name != mainMenuSceneName)
         {
             SceneManager.LoadScene(mainMenuSceneName);
