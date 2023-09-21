@@ -46,6 +46,9 @@ public class PlayerInstance : NetworkBehaviour
         {
             OnPlayerDespawned?.Invoke(this);
         }
+        else
+        {
+        }
         if (IsOwner)
         {
             if (PlayerCameraRerouter.Instance != null)

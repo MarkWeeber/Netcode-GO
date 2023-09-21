@@ -80,17 +80,20 @@ public class LeaderBoard : NetworkBehaviour
         {
             return;
         }
+        if (player.OwnerClientId == OwnerClientId)
+        {
+            return;
+        }
         foreach (LeaderBoardEntityState item in leaderBoardEntityStates)
         {
             if (item.ClientId != player.OwnerClientId)
             {
                 continue;
             }
-            if (IsServer && player.OwnerClientId == OwnerClientId)
+            if (leaderBoardEntityStates.Contains(item))
             {
-                return;
+                leaderBoardEntityStates.Remove(item);
             }
-            leaderBoardEntityStates.Remove(item);
             break;
         }
         player.Inventory.TotalCoins.OnValueChanged -= (oldCoins, newCoins) => HandleCoinsChange(player.OwnerClientId, newCoins);
